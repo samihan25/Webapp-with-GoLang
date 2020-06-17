@@ -1,34 +1,18 @@
-#language: go
-
-#go:
-#- 1.x
-#- "1.10"
-#- 1.11.x
-#- 1.14.x
-#- master
-
-#sudo: required
-
-#services:
-#  - docker
-
-#before_install:
-#  - docker build -t samihan/go_webapp .  
-
-#after_success:
-#  - if [ "$TRAVIS_BRANCH" == "master" ]; then
-#    docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-#    docker push samihan/go_webapp;
-#    fi
-
 language: go
 dist: trusty
-
 jobs:
   include:
-    - stage: build docker image
-      script:
-      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-      - docker build -t samihan/go_webapp .
-      - docker images
-      - docker push samihan/go_webapp
+  - stage: build docker image
+    script:
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - docker build -t samihan/go_webapp .
+    - docker images
+    - docker push samihan/go_webapp
+  - stage: Deploy to Heroku
+    deploy:
+      provider: heroku
+      api_key:
+        secure: KEY
+deploy:
+  api_key:
+    secure: hp/OUmXqvbijLcrdSBm8knp4YoiogmcWqgnrbnnbkB7ZU844duOul+TJZNu7+CF/XyoLPpDRYV/nkEWzBm2COUqGcvEIDViCGx3xDh/GRqBK5SMchs+z9RwxGiTLeJaExTW1Y8zlToIdlgpE8ZBfn8y1f/VG6MOG1CqN9oMU1NPQsqxvwzz3T5bBUA3bRm/UfO8HSY5TV/pRfp3bikCeyhjVBppYyufi+Z4jU9gLoQ08PwwJQRL3DfQO8oSXGpHJtIrfUxaJbGRyCHCaRmMmZvTPm4uUIxs64x1y1q1aN4/0bvV16Xvjr/IeiCFD0SmWxW5h0s6+7nl/4Vl4CiPJkLvMszz4wHxtWN7+z2oEZLQTFZ+gYWJ/pJJOrbZnypqFOksZAql1P4pi3v6il8aH3fuDmSnHNjcS8yshb/H/ATjsfX1BuXte96qLwTDFHgRr4rHltXtVzuhGQNOZVr7v6CYWSNNt5CRHgDIE8JICbDCB+tTLrAkQUjzPbgIcDD3E1ZJz8XnryTfqr/I2iVvVHoHcSgLw4u48sg92IMx1LSgj4sT5taLlIgTmgThfaDaE4vTDKqqSWSDh0bsDu5aySTlHFd0yOY3y0up2JfRehMlgobJEPQEWrBO+8ztxI5ouYSoCS9tTerCK6JSoEoa5Cv3yNBqYDb2O3EXyMfjb+7M=
