@@ -10,7 +10,8 @@ jobs:
     - docker push samihan/go_webapp
   - stage: Deploy to Heroku
     deploy:
+      skip_cleanup: true
       provider: heroku
       api_key:
-        secure: 4d8d72cb-4ab9-4e69-850e-096efc8e968f
-      skip_cleanup: true
+        secure: pXzeRXktqJcz9LnvYAVyJNB5psZ4KcdUVinEeU8q1a299oXlENU0JrJl4DZVoXb1VSs9od23/2wLNLqG4/O80vU0xtr+44RKOQonry6OON89H+FWL9ST/6+YFavvylWWHz8sMwaTdXAZrgj8MP9LuenzkGvUMVYmsAJtlD9V6WMoHos+hpeabICFAsqMnnacl7f08nwzIqrC4DZHOBTgF2J9KQv2OzHaLEmBt4MMoxcK1lDYXKycXEvF6fmB+c51utf+xJ2Ez9hP6CzKMcI2bef9ZeUXHDffy3uxamJsbXK4D23YEsaC8ujy7e5DBeHH2pLo5RJOWYHfVvRDUTPhCnSino8VOpxTh8iANxR9t2LMLH2uLSNB+Qf4hFibT9tClrIz8W0AF2iDtDtipOEszpmO2ciRZBqrSvfrc1E6EYi5oL6nixdHPrab6/ii3fbSbOQZACjA3vZRW229/1deCoq16l+BfhHNHeJx63km0LypeGAlalyMVqSa5K7Y4/Lkn4mlTpz4r1Nk+Vf83nsdLoZqQPv8eFcPKHT0FQ37PN0h4TRoixdrpWp+qZ8/ek3tqMrnCmAVK5EI79A7j1JCWCB1yIqOEPlnN77xWS3/SvR+ITloSVQKSwjvbNPK9OMHcSVgE0UcISmEVApXD0X/pXVPz8OZgfR40GiNqB7Ty7c=
+      
