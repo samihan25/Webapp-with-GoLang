@@ -13,5 +13,6 @@ jobs:
       provider: heroku
       api_key:
         secure: yLsgAGY4PioDsv7bs/32cvHhmYlaUleSEzFXfZYvZph/L6w/UUFDOhp+Rc54K5fTl/0ebNW4azoK610rV4f9S9nVNKA6Px2wbXNone0KMt7l2wTKHC0Qrfmj2rdIgzIlfmK1LnUwgCv3xDWyXUOpmIO5USyx+WDeJawJr4s3t/2v05JeiTai9oYuCj/VkCciv6Vp1vgGDGqiEtRshl41OpkZJdHPTPK6NqagNV5wK77bwK1EAt9Txq9YwaV/jhW8WOtjzZ3x1nvkzCMQZoZtF8hzkQTKTBdedQfY3cxxyaKbD5ZUK5XZMhOg1zZU++z9GveAoCDInivQCdctDU4VLK3odfJ2OrEEzoD2bbC/dO+qw9T+IJtZ9ScWZKxGvnLjMlZBIcyZyrIYzsNSBnOYVYfdQyNqNFWPNaDCfQpQL6oy4fCW7d0oKq8Q4kqE4xksl9x5aiAPLIx5e2tkCmHPMeOb0qR9AwGNJ22UbKrcKYrQGRRgxVx2GdVJz9oiT4S20UxqAvDOGGyj878zUkvPYqOC1qIrVg75+VvUoGKk5VgvOPxzRn2OXLjJInkQp2gKD/pkWgn4c9V0b1TP0/UQ6MJqPjXa8eSe4HUtd+W5TCPje5wInge08EOUSMeftHHyfavhFx8h4LkqkKYELnQWYio/+hfxTbcPoN/n5UyH0TE=
-      skip_cleanup: true
-      
+      app: salty-refuge-57331
+      on:
+        repo: samihan25/go_webapp
