@@ -1,26 +1,18 @@
 language: go
 dist: trusty
-#jobs:
-#  include:
-#  - stage: build docker image
-#    script:
-#    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-#    - docker build -t samihan/go_webapp .
-#    - docker images
-#    - docker push samihan/go_webapp
-#  - stage: Deploy to Heroku
-#    deploy:
-#      provider: heroku
-#      api_key:
-#        secure: g+Zm9QEV6UAkF/EzdwbBA1zIpU7dD9FsaC7rtvuagDVEnMhMk2fkYWVAg/EemUyflfzgC3v35i6wPKRl0fPur43gHNwQz7tsXZXRu27oFBO9FY/PmwfcbzzSngj3+gT4Sk5oM24C2TeuHzUHG9xSIdbpSYN8NBCtPuHVEs1VeZm+CaXfHhmhWaD8HL945mSi/hEe/vEWF6nseqlKedWTtTVefQ/IWu+OvQzWxPBt7tmSGkOzH+Lj/13kA/9qsG2R4stJb6Rm6ig1RAPrCg1G+wZdJTzJGt3oRqoH423twDn5b4Rl9LhOKvG9taWlf/46xjQVUqCL68QJn9v8MAiWQrMSiiLgYU3liFyWC9UEZU4fMlSAHuOk0y/LxzctG9LcDcqQ3sCGu1q+8KstCUN6ULpDulpuFRX97tRrrVFrSBPFby/r6BcAPcavP8aYg4WRaxk28LGDtNuua2JiFIjFjL74oii1xR9DVrkiApFR2MCVBBVSyvNaZr/jAJDYuAUa0hOz4rDKU5YbhFKaow/NeHXy5Bk+SQwyvESU0iICX6ahKxJxbLHqRa+nY+eRiYhaTr0zdwxCvAzkZeUfeWIvmnB5O9bOJ09Gjaz/pE/ZJ2eC78tnEBZHsPKnZgnXWDsNsH57Dak+8D+/rUCyOyFwq0lzYq/8jmWFc6VUDimB/Ys=
-#      app: salty-refuge-57331
-#      on:
-#        repo: samihan25/go_webapp
-
-deploy:
-  provider: heroku
-  api_key:
-    secure: c9ni7TezAkizU3DieLMrqZ550ZZbdL4ekgFBpzMiR9BpDxu9YqoSOzYh5VrK0ITRgkSYVUmv5NQNcv9eK7CAVdbBnNhJW1Mhhg34H0mqLvHdUK8Ae+uGhD8fjQHWWi1uMYte092+SF1KsB5E2BAlCzewGbhNk2WODTZrgFzLtf3J3N7qLiBRCnW7UtcD2kajR3b4khBxofZI0AUoSqAA65IDusAPPyqu3QtTsW/dA9rStkNMxvXTGJucUvTF5cufHFZEU5qdpOrL/jFZiaaQUTTWOj67QK9xNSMnckKCEP4TlB/Szq/38lquhi2uNP5XlTMBo5b8Pd6/IfGHcVkoc1tPkp2iHMqisBnpP9/FZNPhagLzVFzg6EUOqFaIZuLWpG+FtKssn5h72frV/7dVNDAFTgQcu7FCtmFjLc3bQjnH/kTO0SIitKJVCtF39Ev3ubCZSPT2w/0cO/S5TIby8BETLFoxUckZjBZ7n2+b6/iTKek0VQNY/HcvYL0dM332cZsXFQ+69TKAPsBZRuYyhp2QmL+GAG4R3mT67S2+2ARXnRLSYb4UTgk8ZHuNta81NQFjHgeRrcrCQl16sDP/AP/fNipdnsAP4Rn3r7xDKkhR7iH27L5PUTug7Aq6tzMy345T1Gdw5GlIRsdn8eUccvLlrVS34jiXiSw2bFjAkw8=
-  app: salty-refuge-57331
-  on:
-    repo: samihan25/go_webapp
+jobs:
+  include:
+  - stage: build docker image
+    script:
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - docker build -t samihan/go_webapp .
+    - docker images
+    - docker push samihan/go_webapp
+  - stage: Deploy to Heroku
+    deploy:
+      provider: heroku
+      api_key:
+        secure: c9ni7TezAkizU3DieLMrqZ550ZZbdL4ekgFBpzMiR9BpDxu9YqoSOzYh5VrK0ITRgkSYVUmv5NQNcv9eK7CAVdbBnNhJW1Mhhg34H0mqLvHdUK8Ae+uGhD8fjQHWWi1uMYte092+SF1KsB5E2BAlCzewGbhNk2WODTZrgFzLtf3J3N7qLiBRCnW7UtcD2kajR3b4khBxofZI0AUoSqAA65IDusAPPyqu3QtTsW/dA9rStkNMxvXTGJucUvTF5cufHFZEU5qdpOrL/jFZiaaQUTTWOj67QK9xNSMnckKCEP4TlB/Szq/38lquhi2uNP5XlTMBo5b8Pd6/IfGHcVkoc1tPkp2iHMqisBnpP9/FZNPhagLzVFzg6EUOqFaIZuLWpG+FtKssn5h72frV/7dVNDAFTgQcu7FCtmFjLc3bQjnH/kTO0SIitKJVCtF39Ev3ubCZSPT2w/0cO/S5TIby8BETLFoxUckZjBZ7n2+b6/iTKek0VQNY/HcvYL0dM332cZsXFQ+69TKAPsBZRuYyhp2QmL+GAG4R3mT67S2+2ARXnRLSYb4UTgk8ZHuNta81NQFjHgeRrcrCQl16sDP/AP/fNipdnsAP4Rn3r7xDKkhR7iH27L5PUTug7Aq6tzMy345T1Gdw5GlIRsdn8eUccvLlrVS34jiXiSw2bFjAkw8=
+      app: salty-refuge-57331
+      on:
+        repo: samihan25/go_webapp
