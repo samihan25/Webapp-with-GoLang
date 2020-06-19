@@ -16,3 +16,4 @@ jobs:
       app: salty-refuge-57331
       on:
         repo: samihan25/go_webapp
+      skip_cleanup: true
