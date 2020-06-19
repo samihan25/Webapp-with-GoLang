@@ -2,7 +2,7 @@ language: go
 dist: bionic
 jobs:
   include:
-  - stage: build docker image
+  - stage: Build docker image and upload to Docker Hub
     script:
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
     - docker build -t samihan/go_webapp .
