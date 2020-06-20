@@ -4,13 +4,16 @@ import (
 	"fmt"
 	"net"
 	"net/http"
+	"time"
 )
 
 func helloWorld(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello World\n")
-	fmt.Fprintf(w, "And I am ..... Ironman\n")
+	fmt.Fprintf(w, "\n\nHello World\n\n")
+	//fmt.Fprintf(w, "And I am ..... Ironman\n")
 	ipAddress, _, _ := net.SplitHostPort(r.RemoteAddr)
-	fmt.Fprintf(w, "IP address : %s", ipAddress)
+	dt := time.Now()
+	fmt.Fprintf(w, "Your IP address : %s\n\n", ipAddress)
+	fmt.Fprintf(w, "Date and Time : %s\n\n", dt)
 }
 
 func main() {
