@@ -1,5 +1,5 @@
 language: go
-dist: bionic
+dist: bionic  #Using Ubuntu 18.04
 jobs:
   include:
   - stage: Build docker image and upload to Docker Hub
